@@ -15,9 +15,10 @@ def send_telegram(message):
 send_telegram("🤖 Bot ξεκίνησε!")
 
 def get_bitcoin_price():
-    url = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+    url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
     response = requests.get(url)
-    return float(response.json()["price"])
+    data = response.json()
+    return float(data["data"]["amount"])
 
 def get_news_sentiment():
     url = f"https://newsapi.org/v2/everything?q=bitcoin&language=en&sortBy=publishedAt&pageSize=5&apiKey={NEWS_API_KEY}"
