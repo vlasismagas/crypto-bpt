@@ -61,7 +61,7 @@ while True:
             print(f"⏸️ {signal} | BTC: ${price:,.2f} | Αξία: ${total:,.2f}")
         
         counter += 1
-        if counter >= 600:
+        if counter >= 100:
             total = balance_usd + (balance_btc * price)
             send_telegram(f"📊 Update\nBTC: ${price:,.2f}\nΑξία: ${total:,.2f}")
             counter = 0
@@ -70,4 +70,4 @@ while True:
     
     except Exception as e:
         print(f"Error: {e}")
-        time.sleep(10)
+        time.sleep(1)
